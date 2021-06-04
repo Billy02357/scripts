@@ -1,0 +1,22 @@
+#!/bin/sh
+
+getDriveId() {
+        drive_id=$(lsblk | grep 1.8 | grep part | cut -c3,4,5,6)
+}
+
+recover() {
+        doas e2fsck /dev/"$1" && echo "Done recovering /dev/$1"
+}
+
+mountIt() {
+        doas mount /dev/"$1" /mnt && echo "Mounted /dev/$1 to /mnt"
+}
+
+main() {
+        getDriveId
+        recover "$drive_id"
+        mountIt "$drive_id"
+        exit 0
+}
+
+main

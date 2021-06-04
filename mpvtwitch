@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+if [ ! -z $1 ]; then
+        play="https://twitch.tv/"
+        play+="$1"
+        devour mpv $play
+elif [ -z $1 ]; then
+        result=$(cat ~/.config/mpvtwitch/channels.txt | dmenu)
+        devour mpv $result
+else
+        printf "ERROR: WTF just happened...\n"
+fi

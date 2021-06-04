@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for var in "$@"
+do
+    term+=" $var"
+done
+
+lynx -dump "https://duckduckgo.com/?q=$term" | awk '{print}; NR > 35 {exit}' | sed '7, 35 !d' | less
