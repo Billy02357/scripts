@@ -1,3 +1,3 @@
 #!/bin/sh
 
-vi `which "$1"`
+vi $(which "$1")
