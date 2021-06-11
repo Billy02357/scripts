@@ -1,0 +1,27 @@
+#!/bin/sh
+
+createScript() {
+        touch ~/.local/scripts/"$1" || exit 1
+}
+
+makeExec() {
+        chmod +x ~/.local/scripts/"$1" || exit 1
+}
+
+openScript() {
+        vi ~/.local/scripts/"$1" || exit 1
+}
+
+checkOptions() {
+        if test -n "$1"; then
+                createScript "$@"
+                makeExec "$1"
+                openScript "$1"
+        fi
+}
+
+main() {
+        checkOptions "$@"
+}       
+
+main "$@"
