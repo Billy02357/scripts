@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
 
-if [ ! -z $1 ]; then
+if test -n "$1"; then
         play="https://twitch.tv/"
         play+="$1"
-        devour mpv $play
-elif [ -z $1 ]; then
-        result=$(cat ~/.config/mpvtwitch/channels.txt | dmenu)
-        devour mpv $result
+        devour mpv "$play"
+
+elif test -z "$1"; then
+        result=$(dmenu -l 10 -p "Choose a streamer: " < ~/.config/mpvtwitch/channels.txt)
+        devour mpv "$result"
+
 else
-        printf "ERROR: WTF just happened...\n"
+        exit 1
 fi
