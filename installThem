@@ -1,0 +1,8 @@
+#!/bin/sh
+
+main() {
+        mkdir -pv ~/.local/scripts
+        cp * ~/.local/scripts
+}
+
+main "$@"
