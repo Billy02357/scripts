@@ -1,0 +1,8 @@
+#!/bin/sh
+
+main() {
+        doas systemd-resolve --flush-cache
+        doas systemd-resolve --statistics
+}
+
+main "$@"

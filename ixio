@@ -1,0 +1,7 @@
+#!/bin/sh
+
+main() {
+        curl -F 'f:1=<-' ix.io "$@"
+}
+
+main "$@"
