@@ -1,0 +1,18 @@
+#!/bin/sh
+
+tmux new-session -d -s dlang
+
+tmux new-window -t dlang:0 -n Programming_in_D.txt
+tmux rename-window -t dlang:0 "Programming_in_D.txt"
+tmux send-keys -t dlang:0 "cd dlang/" Enter "vi Programming_in_D.txt" Enter
+
+tmux new-window -t dlang:1 -n sh
+tmux rename-window -t dlang:1 "sh"
+tmux send-keys -t dlang:1 "cd dlang/" Enter "clear" Enter "ls" Enter
+
+tmux new-window -t dlang:2 -n src
+tmux rename-window -t dlang:2 "src"
+tmux send-keys -t dlang:2 "cd dlang/src/" Enter "clear" Enter "ls" Enter
+
+tmux select-window -t dlang:src
+tmux attach-session -d -t dlang
