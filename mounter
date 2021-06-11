@@ -17,7 +17,7 @@ getDriveId() {
 }
 
 recover() {
-        doas e2fsck -p /dev/"$1" && echo "Done recovering /dev/$1"
+        (doas e2fsck -p /dev/"$1" && echo "Done recovering /dev/$1") || exit 1
 }
 
 mountIt() {
