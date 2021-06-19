@@ -1,0 +1,14 @@
+#!/bin/sh
+
+tmux new-session -d -s clang
+
+tmux new-window -t clang:0 -n bin
+tmux rename-window -t clang:0 "bin"
+tmux send-keys -t clang:0 "cd clang/" Enter "cd bin/" Enter "clear" Enter "ls" Enter
+
+tmux new-window -t clang:1 -n src
+tmux rename-window -t clang:1 "src"
+tmux send-keys -t clang:1 "cd clang/" Enter "cd src/" Enter "clear" Enter "ls" Enter
+
+tmux select-window -t clang:src
+tmux attach-session -d -t clang

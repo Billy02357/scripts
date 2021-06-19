@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-        /bin/git "$@"
+        command git "$@"
 }
 
 main "$@"

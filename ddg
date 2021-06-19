@@ -1,3 +1,12 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 lynx "https://duckduckgo.com/?q=$@"
+=======
+for var in "$@"
+do
+    term+=" $var"
+done
+
+lynx "https://duckduckgo.com/?q=$term"
+>>>>>>> 96162fb3ab8df4252fae91cbae025b26dbb61379
