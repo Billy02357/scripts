@@ -1,22 +1,24 @@
 #!/bin/sh
 
 createScript() {
-        touch ~/.local/scripts/"$1" || exit 1
+        touch "$HOME/.local/scripts/$1" || exit 1
 }
 
 makeExec() {
-        chmod +x ~/.local/scripts/"$1" || exit 1
+        chmod +x "$HOME/.local/scripts/$1" || exit 1
 }
 
 openScript() {
-        vi ~/.local/scripts/"$1" || exit 1
+        vi "$HOME/.local/scripts/$1" || exit 1
 }
 
 checkOptions() {
         if test -n "$1"; then
-                createScript "$@"
+                createScript "$1"
                 makeExec "$1"
                 openScript "$1"
+        else
+                exit 1
         fi
 }
 
