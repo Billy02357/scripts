@@ -1,28 +1,5 @@
 #!/bin/sh
 
-<<<<<<< HEAD
-createScript() {
-        touch "$HOME/.local/scripts/$1" || exit 1
-}
-
-makeExec() {
-        chmod +x "$HOME/.local/scripts/$1" || exit 1
-}
-
-openScript() {
-        vi "$HOME/.local/scripts/$1" || exit 1
-}
-
-checkOptions() {
-        if test -n "$1"; then
-                createScript "$1"
-                makeExec "$1"
-                openScript "$1"
-        else
-                exit 1
-=======
-set -xe
-
 createLocalScript() {
         touch ~/repos/github.com/anon/scripts/"$1" || exit 1
 }
@@ -52,13 +29,10 @@ checkOptions() {
                 createLocalScript "$1"
                 makeLocalExec "$1"
                 openLocalScript "$1"
-        elif test "$1" = "-n"; then
+        elif test -n "$1" && test "$1" = "-n"; then
                 createRelativeScript "$2"
                 makeRelativeExec "$2"
                 openScript "$2"
-                
-                
->>>>>>> 96162fb3ab8df4252fae91cbae025b26dbb61379
         fi
 }
 
