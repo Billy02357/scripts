@@ -2,9 +2,9 @@
 
 takeScreen() {
         if test -z "$1"; then
-                maim -s > "screenshot_$(date +%Y_%m_%d_%M).png"
+                maim -su > "screenshot_$(date +%Y_%m_%d_%M).png"
         else
-                maim -s > "$1.png"
+                maim -su > "$1.png"
         fi
 }
 

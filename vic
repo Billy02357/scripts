@@ -1,7 +1,13 @@
 #!/bin/sh
 
-file="$(which "$1")"
-vi "$file"
+if test "$1" != "-r"; then
+        file="$(which "$1")"
+        vi "$file"
+elif test "$1" = "-r"; then
+        file="$(which "$2")"
+        vi -r "$file"
+fi
+
 if test -n "$(file "$file" | grep "shell script")"; then
         shellcheck "$file"
 fi
