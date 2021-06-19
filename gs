@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-        g status -sb "$@"
+        /bin/git status -sb "$@"
 }
 
 main "$@"

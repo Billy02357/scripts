@@ -1,3 +1,7 @@
 #!/bin/sh
 
-vi $(which "$1")
+file="$(which "$1")"
+vi "$file"
+if test -n "$(file "$file" | grep "shell script")"; then
+        shellcheck "$file"
+fi

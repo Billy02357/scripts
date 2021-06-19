@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-        /bin/ls --color=auto -l "$@"
+        /bin/ls -lh --color=auto "$@"
 }
 
 main "$@"

@@ -1,22 +1,42 @@
 #!/bin/sh
 
-createScript() {
-        touch ~/.local/scripts/"$1" || exit 1
+set -xe
+
+createLocalScript() {
+        touch ~/repos/github.com/anon/scripts/"$1" || exit 1
 }
 
-makeExec() {
-        chmod +x ~/.local/scripts/"$1" || exit 1
+createRelativeScript() {
+        touch "$1"
+}
+
+makeRelativeExec() {
+        chmod +x "$1"
+}
+
+makeLocalExec() {
+        chmod +x ~/repos/github.com/anon/scripts/"$1" || exit 1
+}
+
+openLocalScript() {
+        vi ~/repos/github.com/anon/scripts/"$1" || exit 1
 }
 
 openScript() {
-        vi ~/.local/scripts/"$1" || exit 1
+        vi "$1"
 }
 
 checkOptions() {
-        if test -n "$1"; then
-                createScript "$@"
-                makeExec "$1"
-                openScript "$1"
+        if test -n "$1" && test "$1" != "-n"; then
+                createLocalScript "$1"
+                makeLocalExec "$1"
+                openLocalScript "$1"
+        elif test "$1" = "-n"; then
+                createRelativeScript "$2"
+                makeRelativeExec "$2"
+                openScript "$2"
+                
+                
         fi
 }
 

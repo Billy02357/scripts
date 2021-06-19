@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-        doas /bin/mount "$@"
+        doas /bin/pacman "$@"
 }
 
 main "$@"

@@ -5,4 +5,4 @@ do
     term+=" $var"
 done
 
-lynx -dump "https://duckduckgo.com/?q=$term"
+lynx "https://duckduckgo.com/?q=$term"

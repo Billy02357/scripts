@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-        /bin/cp -iv "$@"
+        exec /bin/cp -iv "$@"
 }
 
 main "$@"
