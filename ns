@@ -1,7 +1,7 @@
 #!/bin/sh
 
 createLocalScript() {
-        touch ~/repos/github.com/anon/scripts/"$1" || exit 1
+        touch ~/repos/github.com/"$GITUSER"/scripts/"$1" || exit 1
 }
 
 createRelativeScript() {
@@ -13,11 +13,11 @@ makeRelativeExec() {
 }
 
 makeLocalExec() {
-        chmod +x ~/repos/github.com/anon/scripts/"$1" || exit 1
+        chmod +x ~/repos/github.com/"$GITUSER"/scripts/"$1" || exit 1
 }
 
 openLocalScript() {
-        vi ~/repos/github.com/anon/scripts/"$1" || exit 1
+        vi ~/repos/github.com/"$GITUSER"/scripts/"$1" || exit 1
 }
 
 openScript() {
