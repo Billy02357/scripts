@@ -1,0 +1,9 @@
+#!/bin/sh
+
+vim "$@"
+
+if test "$(file "$1" | grep ".go")"; then
+        printf 'Running go fmt %s\n' "$1"
+        go fmt "$1"
+        printf 'Done.\n'
+fi
