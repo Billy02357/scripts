@@ -1,7 +1,0 @@
-#!/bin/sh
-
-main() {
-        devour /bin/apvlv "$@"
-}
-
-main "$@"
