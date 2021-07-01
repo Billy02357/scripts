@@ -1,0 +1,12 @@
+#!/bin/sh
+
+term=""
+old="$term"
+
+for var in "$@"
+do
+    term="$term$old $var"
+    old="$term"
+done
+
+lynx "https://search.brave.com/search?q=$term"
