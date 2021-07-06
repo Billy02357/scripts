@@ -2,7 +2,7 @@
 
 vim "$@"
 
-if test "$(file "$1" | grep ".go")"; then
+if test "$(file "$1" | grep ".go: C source, ASCII text")"; then
         printf 'Running go fmt %s\n' "$1"
         go fmt "$1"
         printf 'Done.\n'
