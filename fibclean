@@ -1,0 +1,16 @@
+#!/bin/sh
+
+main() {
+        file="$(mktemp)"
+        fib "$1" > "$file"
+        if grep "e" "$file" 2>/dev/null 1>&2; then
+                first="$(fib "$1" | cut -d 'e' -f1)"
+                second="$(fib "$1" | cut -d 'e' -f2 | cut -d'+' -f2)"
+                printf '~'
+                bc -l <<< "$first*10^$second" | cut -d '.' -f1
+        else
+                fib "$1"
+        fi
+}
+
+main "$@"
