@@ -1,12 +1,2 @@
 #!/bin/sh
-
-toDevNull() {
-        eval "$@" >/dev/null 2>&1 || exit 1
-}
-
-main() {
-        toDevNull "$@"
-        exit 0
-}
-
-main "$@"
+eval "$@" >/dev/null 2>&1 || exit 1
