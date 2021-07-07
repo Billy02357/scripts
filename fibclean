@@ -4,8 +4,9 @@ main() {
         file="$(mktemp)"
         fib "$1" > "$file"
         if grep "e" "$file" 2>/dev/null 1>&2; then
-                printf '~'
-                echo "$(fib "$1")" | calc
+                first="$(fib "$1" | cut -d'e' -f1)"
+                second="$(fib "$1" | cut -d'e' -f2 | cut -d'+' -f2)"
+                echo "$first*10^$second" | bc | cut -d'.' -f1
         else
                 fib "$1"
         fi
