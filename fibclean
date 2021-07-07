@@ -1,4 +1,5 @@
 #!/bin/sh
+#######     https://github.com/billy02357/fib       #######
 
 main() {
         file="$(mktemp)"
