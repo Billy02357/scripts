@@ -2,11 +2,11 @@
 
 
 if test -n "$1"; then
-        mpv "https://twitch.tv/$1" 1>/dev/null 2>&1
+        mpv "https://twitch.tv/$1" 1>/dev/null 2>&1 &
 
 elif test -z "$1"; then
         
-        mpv "$(dmenu -l 10 -p "Choose a streamer: " < ~/.config/mpvtwitch/channels.txt)" 1>/dev/null 2>&1
+        mpv "$(dmenu -l 10 -p "Choose a streamer: " < ~/.config/mpvtwitch/channels.txt)" 1>/dev/null 2>&1 &
 
 else
         exit 1
