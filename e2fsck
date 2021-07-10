@@ -1,7 +1,2 @@
 #!/bin/sh
-
-main() {
-        /bin/e2fsck -p "$@"
-}
-
-main "$@"
+/bin/e2fsck -p "$@"

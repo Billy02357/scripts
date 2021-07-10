@@ -4,7 +4,7 @@ main() {
         repo="$(pwd)"
         URL="https://$(echo "$repo" | cut -d'/' -f5,6,7)"
         echo "$URL"
-        librewolf "$URL" 2>/dev/null 1>&2
+        xdg-open "$URL" 2>/dev/null 1>&2
 }
 
 main "$@" &
